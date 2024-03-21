@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ChosenPage from "./pages/ChosenPage";
+import OrganizationsPage from "./pages/OrganizationsPage";
 import TasksPage from "./pages/TasksPage";
 import { WebAppContext } from "./contexts/WebAppContext";
 import { useWebApp } from "./hooks/useWebApp";
@@ -11,7 +11,7 @@ function App() {
     <WebAppContext.Provider value={{ WebApp: webApp }}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<ChosenPage />} />
+          <Route path="/" element={<OrganizationsPage />} />
           <Route path="/:organizationName/tasks" element={<TasksPage />} />
         </Routes>
       </BrowserRouter>
