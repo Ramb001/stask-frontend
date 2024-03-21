@@ -1,0 +1,33 @@
+@import "../../vars.scss";
+
+
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: $tg-secondary-background;
+    border-radius: 10px;
+    padding: 10px 16px;
+    color: $tg-text-color;
+}
+
+.mainInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.subtext {
+    font-size: 12px;
+    color: $tg-hint-color;
+}
+
+.icon {
+    cursor: pointer;
+}
