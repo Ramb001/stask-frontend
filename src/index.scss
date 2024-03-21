@@ -1,0 +1,18 @@
+@import "./vars.scss";
+
+
+@font-face {
+  font-family: Inter;
+  src: url("./assets/fonts/Inter-VariableFont_slnt\,wght.ttf") format('truetype');
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Inter !important;
+  font-weight: 300;
+}
+
+body {
+  background: $tg-background;
+}
