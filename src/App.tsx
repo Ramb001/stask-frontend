@@ -4,6 +4,7 @@ import { useWebApp } from "./hooks/useWebApp";
 import OrganizationsPage from "./pages/OrganizationsPage";
 import TasksPage from "./pages/TasksPage";
 import CreateTask from "./pages/CreateTask";
+import CreateOrganization from "./pages/CreateOrganization";
 
 function App() {
   const webApp = useWebApp();
@@ -18,6 +19,7 @@ function App() {
             path="/:organizationName/createTask"
             element={<CreateTask />}
           />
+          <Route path="/createOrganization" element={<CreateOrganization />} />
         </Routes>
       </BrowserRouter>
     </WebAppContext.Provider>
