@@ -1,6 +1,20 @@
-.cards {
+@import "../../vars.scss";
+
+
+.page {
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 5px 8px;
+}
+
+.button {
+    background: $tg-button-background;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 12px;
+    color: $tg-button-text-color;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
 }

@@ -1,1 +1,2 @@
-export const cards: string;
+export const page: string;
+export const button: string;
