@@ -44,8 +44,6 @@ function TasksPage() {
       });
   }, []);
 
-  console.log(tasks);
-
   return (
     <div className={styles.page}>
       {searchParams.get("user_status") === "Owner" && (
