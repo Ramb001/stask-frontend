@@ -2,15 +2,9 @@ import { useCallback, useContext, useEffect, useState } from "react";
 import { WebAppContext } from "../../contexts/WebAppContext";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import axios from "axios";
-import { url } from "../../constants";
+import { url, TaskInterface } from "../../constants";
 import TaskCard from "../../components/TaskCard";
 import styles from "./TasksPage.module.scss";
-
-interface TasksInterface {
-  notStarted: Array<string>;
-  inProgress: Array<string>;
-  done: Array<string>;
-}
 
 function TasksPage() {
   const { WebApp } = useContext(WebAppContext);
@@ -38,17 +32,19 @@ function TasksPage() {
     WebApp?.BackButton.show();
   }, [WebApp]);
 
-  const [tasks, setTasks] = useState<TasksInterface>();
+  const [tasks, setTasks] = useState<Array<TaskInterface>>();
 
   useEffect(() => {
     axios
       .get(`${url}/get-tasks`, {
-        params: { organization_name: params.organizationName },
+        params: { organization: params.organizationName },
       })
       .then((resp) => {
         setTasks(resp.data);
       });
   }, []);
+
+  console.log(tasks);
 
   return (
     <div className={styles.page}>
@@ -71,20 +67,41 @@ function TasksPage() {
       )}
       <div className={styles.box}>
         <div className={styles.title}>NOT STARTED ❌</div>
-        {tasks?.notStarted.map((task, idx) => {
-          return <TaskCard key={idx} />;
+        {tasks?.map((task, idx) => {
+          return (
+            task.status === "not_started" && (
+              <TaskCard
+                props={{ task: task, data: tasks, setData: setTasks }}
+                key={idx}
+              />
+            )
+          );
         })}
       </div>
       <div className={styles.box}>
         <div className={styles.title}>IN PROGRESS 💻</div>
-        {tasks?.inProgress.map((task, idx) => {
-          return <TaskCard key={idx} />;
+        {tasks?.map((task, idx) => {
+          return (
+            task.status === "in_progress" && (
+              <TaskCard
+                props={{ task: task, data: tasks, setData: setTasks }}
+                key={idx}
+              />
+            )
+          );
         })}
       </div>
       <div className={styles.box}>
         <div className={styles.title}>DONE ✅</div>
-        {tasks?.done.map((task, idx) => {
-          return <TaskCard key={idx} />;
+        {tasks?.map((task, idx) => {
+          return (
+            task.status === "done" && (
+              <TaskCard
+                props={{ task: task, data: tasks, setData: setTasks }}
+                key={idx}
+              />
+            )
+          );
         })}
       </div>
     </div>
