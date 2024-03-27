@@ -1,0 +1,37 @@
+@import "../../vars.scss";
+
+
+.page {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 8px;
+    gap: 20px;
+}
+
+.title {
+    margin: 0;
+    color: $tg-text-color;
+    font-weight: 600;
+}
+
+.reflinkDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: $tg-text-color;
+}
+
+.subTitle {
+    font-size: 18px;
+    font-weight: 400;
+    color: $tg-hint-color;
+}
+
+.copyDiv {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 16px;
+    background: $tg-secondary-background;
+    justify-content: space-between;
+    border-radius: 6px;
+}
