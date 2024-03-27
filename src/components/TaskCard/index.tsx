@@ -38,12 +38,22 @@ function TaskCard({ props }: { props: propsType }) {
       });
   }
 
+  const [height, setHeight] = useState<string | number>(2);
+
   return (
     <div className={styles.taskCard}>
       <div className={styles.mainInfo}>
-        <div className={styles.title}>{task.title}</div>
-        <div className={styles.text}>{task.description}</div>
-        {/* <div className={styles.deadline}>{task.deadline}</div> */}
+        <div className={styles.info}>
+          <div className={styles.title}>{task.title}</div>
+          <div className={styles.text}>Deadline: {task.deadline}</div>
+        </div>
+        <div
+          className={styles.description}
+          onClick={() => setHeight(height === 2 ? "unset" : 2)}
+          style={{ WebkitLineClamp: height, whiteSpace: "pre-wrap" }}
+        >
+          {task.description}
+        </div>
       </div>
       <div className={styles.subInfo}>
         <div className={styles.workers}>
