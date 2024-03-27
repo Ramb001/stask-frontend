@@ -1,7 +1,7 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import GoIcon from "../../assets/icons/GoIcon";
 import { OrganizationInterface } from "../../constants";
-import styles from "./OrganixationCard.module.scss";
+import styles from "./OrganizationCard.module.scss";
 
 function OrganizationCard({ params }: { params: OrganizationInterface }) {
   const [searchParams, _] = useSearchParams();
