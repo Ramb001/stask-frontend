@@ -1,0 +1,27 @@
+@import "../../vars.scss";
+
+
+.inputDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 7.5px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 400;
+    color: $tg-hint-color;
+}
+
+.input {
+    width: 100%;
+    color: $tg-text-color;
+    background: $tg-background;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 400;
+    background: $tg-secondary-background;
+    border: none;
+    outline: none;
+}
