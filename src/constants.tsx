@@ -1,8 +1,18 @@
 export const url = "https://stask-bot.ru";
 
+export const maxNumberOfDescriptionCharaters = 2500;
+
 export interface OrganizationInterface {
   name: string;
   user_status: string;
+}
+
+export interface WorkersInterface {
+  id: string;
+  name: string;
+  username: string;
+  tg_id: string;
+  chat_id: string;
 }
 
 export interface TaskInterface {
