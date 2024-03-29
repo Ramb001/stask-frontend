@@ -11,9 +11,9 @@ function CreateOrganization() {
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
-  const ref_link =
-    Math.random().toString(36).slice(-6) +
-    Math.random().toString(36).slice(-12);
+  const [ref_link, setRef_link] = useState(
+    Math.random().toString(36).slice(-6) + Math.random().toString(36).slice(-12)
+  );
 
   const sendDataToTelegram = useCallback(() => {
     if (name.length != 0) {
@@ -88,7 +88,7 @@ function CreateOrganization() {
         }}
       />
       <div className={styles.reflinkDiv}>
-        <div className={styles.subTitle}>Organization referal link</div>
+        <div className={styles.subTitle}>Organization referal code</div>
         <div className={styles.copyDiv}>
           <p className={styles.reflink}>{ref_link}</p>
           <Clipboard
