@@ -76,7 +76,7 @@ function CreateOrganization() {
   return (
     <div className={styles.page}>
       <h1 className={styles.title}>
-        Create <br /> organization
+        Create <br /> Organization
       </h1>
       <InputLayout
         props={{
