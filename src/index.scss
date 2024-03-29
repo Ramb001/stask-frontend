@@ -16,3 +16,16 @@
 body {
   background: $tg-background;
 }
+
+ul[role="listbox"],
+ul[role="listbox"]>li {
+  background: var(--tg-theme-secondary-bg-color, gray) !important;
+  color: var(--tg-theme-text-color, white) !important;
+  box-shadow: none !important;
+  border: none !important;
+  font-size: 14px !important;
+}
+
+ul[role="listbox"]>li[aria-selected="true"] {
+  background: gray !important;
+}
