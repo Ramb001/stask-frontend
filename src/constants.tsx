@@ -12,6 +12,8 @@ export interface TaskInterface {
   status: string;
   workers: Array<{ name: string; value: "name" | "username" }>;
   deadline: string;
+  requested: boolean;
+  verified: boolean;
 }
 
 interface statusesInterface {
