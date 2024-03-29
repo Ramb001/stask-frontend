@@ -1,0 +1,48 @@
+@import "../../vars.scss";
+
+
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 5px 8px;
+    color: $tg-text-color;
+}
+
+.inputDesc {
+    width: 100% !important;
+    color: $tg-text-color !important;
+    background: $tg-secondary-background !important;
+    border: none !important;
+    padding: 10px 16px !important;
+    font-size: 14px !important;
+}
+
+.select {
+    background: var(--tg-theme-secondary-bg-color, gray) !important;
+    color: var(--tg-theme-text-color, white) !important;
+    font-size: 14px !important;
+    border: none !important;
+
+    &>span:hover {
+        background: var(--tg-theme-secondary-bg-color, gray) !important;
+        color: var(--tg-theme-text-color, white) !important;
+    }
+
+    &>span {
+        background: var(--tg-theme-secondary-bg-color, gray) !important;
+        color: var(--tg-theme-text-color, white) !important;
+        background: none !important;
+    }
+}
+
+.dateInput {
+    background: $tg-secondary-background;
+    color: $tg-text-color;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 400;
+    width: 100%;
+}
