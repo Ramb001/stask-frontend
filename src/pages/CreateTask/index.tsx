@@ -29,7 +29,7 @@ function CreateTask() {
         JSON.stringify({
           action: "create_task",
           data: {
-            organization: params.organization_id,
+            organization_id: params.organization_id,
             title: title,
             description: description,
             creator: searchParams.get("user_id"),
@@ -81,7 +81,7 @@ function CreateTask() {
   useEffect(() => {
     axios
       .get(`${url}/get-workers`, {
-        params: { organization: params.organization_id },
+        params: { organization_id: params.organization_id },
       })
       .then((resp) => {
         setAllWorkers(resp.data);

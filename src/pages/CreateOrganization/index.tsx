@@ -16,7 +16,7 @@ function CreateOrganization() {
   );
 
   const sendDataToTelegram = useCallback(() => {
-    if (name.length != 0) {
+    if (name.length !== 0) {
       WebApp?.sendData(
         JSON.stringify({
           action: "create_organization",
@@ -28,7 +28,7 @@ function CreateOrganization() {
         })
       );
     }
-  }, [WebApp]);
+  }, [WebApp, name, ref_link]);
 
   const backToMenu = useCallback(() => {
     WebApp?.MainButton.hide();
