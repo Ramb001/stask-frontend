@@ -1,0 +1,101 @@
+@import "../../vars.scss";
+
+
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 5px 8px;
+    color: $tg-text-color;
+    align-items: center;
+}
+
+.listDiv {
+    background: $tg-secondary-background;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+
+    &>div:last-child {
+        border: none;
+    }
+}
+
+.listItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 16px;
+    align-items: center;
+    border-bottom: 1px solid $tg-hint-color;
+}
+
+.deleteIcon {
+    background: transparent;
+    border: none;
+    display: flex;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.title {
+    color: $tg-hint-color;
+}
+
+.copyDiv {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 16px;
+    background: $tg-secondary-background;
+    justify-content: space-between;
+    border-radius: 6px;
+}
+
+.text {
+    padding: 10px 16px;
+    background: $tg-secondary-background;
+    border-radius: 6px;
+}
+
+.subDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.table {
+    border: none;
+    background: $tg-secondary-background;
+    border-radius: 10px;
+    text-align: center;
+    display: table;
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table td,
+th {
+    border-left: 1px solid $tg-hint-color;
+    border-right: 1px solid $tg-hint-color;
+    border-bottom: 1px solid $tg-hint-color;
+}
+
+.table td:first-child,
+th:first-child {
+    border-left: none;
+}
+
+.table td:last-child,
+th:last-child {
+    border-right: none;
+}
+
+.table>tbody>tr>td {
+    border-bottom: none;
+}
+
+.cell {
+    padding: 5px 8px;
+}
