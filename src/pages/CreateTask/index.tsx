@@ -29,7 +29,7 @@ function CreateTask() {
         JSON.stringify({
           action: "create_task",
           data: {
-            organization: params.organizationName,
+            organization: params.organization_id,
             title: title,
             description: description,
             creator: searchParams.get("user_id"),
@@ -45,9 +45,11 @@ function CreateTask() {
     WebApp?.MainButton.hide();
     WebApp?.BackButton.hide();
     navigate(
-      `/${params.organizationName}/tasks?user_id=${searchParams.get(
+      `/${params.organization_id}/tasks?user_id=${searchParams.get(
         "user_id"
-      )}&language_code=${searchParams.get("language_code")}`
+      )}&language_code=${searchParams.get(
+        "language_code"
+      )}&user_status=${searchParams.get("user_status")}`
     );
   }, [WebApp, navigate]);
 
@@ -79,7 +81,7 @@ function CreateTask() {
   useEffect(() => {
     axios
       .get(`${url}/get-workers`, {
-        params: { organization: params.organizationName },
+        params: { organization: params.organization_id },
       })
       .then((resp) => {
         setAllWorkers(resp.data);
