@@ -4,6 +4,7 @@ import { useSearchParams, useNavigate, useParams } from "react-router-dom";
 import TabsLayout from "../../layouts/TabsLayout";
 import OrganizationTasks from "../../components/OrganizationTasks";
 import OrganizationRequests from "../../components/OrganizationRequests";
+import OverviewOrganization from "../../components/OverviewOrganization";
 
 function OrganizationPage() {
   const { WebApp } = useContext(WebAppContext);
@@ -45,7 +46,7 @@ function OrganizationPage() {
           setTab: setActiveTab,
         }}
       />
-      {activeTab === "Overview" && ""}
+      {activeTab === "Overview" && <OverviewOrganization />}
       {activeTab === "Tasks" && <OrganizationTasks />}
       {activeTab === "Requests" &&
         searchParams.get("user_status") === "Owner" && <OrganizationRequests />}

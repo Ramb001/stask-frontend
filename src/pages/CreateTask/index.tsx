@@ -45,7 +45,7 @@ function CreateTask() {
     WebApp?.MainButton.hide();
     WebApp?.BackButton.hide();
     navigate(
-      `/${params.organization_id}/tasks?user_id=${searchParams.get(
+      `/${params.organization_id}?user_id=${searchParams.get(
         "user_id"
       )}&language_code=${searchParams.get(
         "language_code"
