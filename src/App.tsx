@@ -5,6 +5,7 @@ import OrganizationsPage from "./pages/OrganizationsPage";
 import CreateTask from "./pages/CreateTask";
 import CreateOrganization from "./pages/CreateOrganization";
 import OrganizationPage from "./pages/OrganizationPage";
+import Profile from "./pages/Profile";
 
 function App() {
   const webApp = useWebApp();
@@ -17,6 +18,7 @@ function App() {
           <Route path="/:organization_id" element={<OrganizationPage />} />
           <Route path="/:organization_id/createTask" element={<CreateTask />} />
           <Route path="/createOrganization" element={<CreateOrganization />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </WebAppContext.Provider>

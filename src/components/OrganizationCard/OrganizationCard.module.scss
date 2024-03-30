@@ -31,3 +31,14 @@
 .icon {
     cursor: pointer;
 }
+
+.button {
+    background: $tg-button-background;
+    padding: 10px 16px;
+    font-size: 14px;
+    color: $tg-button-text-color;
+    border: none;
+    border-radius: 6px;
+    width: 75px;
+    cursor: pointer;
+}

@@ -1,0 +1,59 @@
+@import "../../vars.scss";
+
+
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 5px 8px;
+}
+
+.title {
+    margin: 0;
+    color: $tg-text-color;
+    font-weight: 600;
+}
+
+.orgDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.editDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 16px;
+    align-items: center;
+    background: $tg-secondary-background;
+    border-radius: 10px;
+    color: $tg-text-color;
+    font-size: 14px;
+}
+
+.editButton {
+    background: transparent;
+    border: none;
+}
+
+.input {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 14px;
+    color: $tg-text-color;
+    width: 100%;
+    outline: none;
+}
+
+.subDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.subTitle {
+    color: $tg-hint-color;
+}
