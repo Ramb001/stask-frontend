@@ -2,9 +2,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { WebAppContext } from "./contexts/WebAppContext";
 import { useWebApp } from "./hooks/useWebApp";
 import OrganizationsPage from "./pages/OrganizationsPage";
-import TasksPage from "./pages/TasksPage";
 import CreateTask from "./pages/CreateTask";
 import CreateOrganization from "./pages/CreateOrganization";
+import OrganizationPage from "./pages/OrganizationPage";
 
 function App() {
   const webApp = useWebApp();
@@ -14,11 +14,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<OrganizationsPage />} />
-          <Route path="/:organizationName/tasks" element={<TasksPage />} />
           <Route
-            path="/:organizationName/createTask"
-            element={<CreateTask />}
+            path="/:organization_id/tasks"
+            element={<OrganizationPage />}
           />
+          <Route path="/:organization_id/createTask" element={<CreateTask />} />
           <Route path="/createOrganization" element={<CreateOrganization />} />
         </Routes>
       </BrowserRouter>
