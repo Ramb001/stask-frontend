@@ -6,7 +6,9 @@ import axios from "axios";
 import styles from "./OrganizationsPage.module.scss";
 
 function OrganizationsPage() {
-  const [orgs, setOrgs] = useState<Array<OrganizationInterface>>([]);
+  const [organizations, setOrganizations] = useState<
+    Array<OrganizationInterface>
+  >([]);
   const [searchParams, _] = useSearchParams();
   const user_id = searchParams.get("user_id") || "";
   const params = useParams();
@@ -14,10 +16,10 @@ function OrganizationsPage() {
 
   useEffect(() => {
     axios
-      .get(`${url}/get_organizations`, {
+      .get(`${url}/get-organizations`, {
         params: { user_id: user_id },
       })
-      .then((response) => setOrgs(response.data));
+      .then((response) => setOrganizations(response.data));
   }, [user_id]);
 
   return (
@@ -35,8 +37,13 @@ function OrganizationsPage() {
       >
         Create new organization
       </button>
-      {orgs.map((org: OrganizationInterface, idx) => {
-        return <OrganizationCard params={org} key={idx} />;
+      {organizations.map((organization: OrganizationInterface, idx) => {
+        return (
+          <OrganizationCard
+            props={{ type: "main", organization: organization }}
+            key={idx}
+          />
+        );
       })}
     </div>
   );
