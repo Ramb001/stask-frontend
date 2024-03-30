@@ -3,6 +3,7 @@ export const url = "https://stask-bot.ru";
 export const maxNumberOfDescriptionCharaters = 2500;
 
 export interface OrganizationInterface {
+  id: string;
   name: string;
   user_status: string;
 }
@@ -36,3 +37,12 @@ export const statuses: Array<statusesInterface> = [
   { name: "In progress", value: "in_progress" },
   { name: "Done", value: "done" },
 ];
+
+export interface RequestInterface {
+  id: string;
+  title: string;
+  description: string;
+  status: string;
+  workers: Array<{ name: string; value: "name" | "username" }>;
+  deadline: string;
+}
