@@ -9,7 +9,7 @@ import RequestedIcon from "../../assets/icons/RequestedIcon";
 
 type propsType = {
   task: TaskInterface;
-  setData: Dispatch<SetStateAction<Array<TaskInterface> | undefined>>;
+  setData: Dispatch<SetStateAction<Array<TaskInterface>>>;
 };
 
 function TaskCard({ props }: { props: propsType }) {

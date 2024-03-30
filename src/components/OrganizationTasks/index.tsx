@@ -6,8 +6,7 @@ import TaskCard from "../TaskCard";
 import styles from "./OrganizationTasks.module.scss";
 
 function OrganizationTasks() {
-  const [tasks, setTasks] = useState<Array<TaskInterface>>();
-  const [view, setView] = useState(false);
+  const [tasks, setTasks] = useState<Array<TaskInterface>>([]);
 
   const [searchParams, _] = useSearchParams();
   const params = useParams();
@@ -20,7 +19,6 @@ function OrganizationTasks() {
       })
       .then((resp) => {
         setTasks(resp.data);
-        resp.data.length !== 0 && setView(true);
       });
   }, []);
 
@@ -43,11 +41,11 @@ function OrganizationTasks() {
           Create new task
         </button>
       )}
-      {view ? (
+      {tasks.length !== 0 ? (
         <>
           <div className={styles.box}>
             <div className={styles.title}>NOT STARTED ❌</div>
-            {tasks?.map((task, idx) => {
+            {tasks.map((task, idx) => {
               return (
                 task.status === "not_started" && (
                   <TaskCard
@@ -60,7 +58,7 @@ function OrganizationTasks() {
           </div>
           <div className={styles.box}>
             <div className={styles.title}>IN PROGRESS 💻</div>
-            {tasks?.map((task, idx) => {
+            {tasks.map((task, idx) => {
               return (
                 task.status === "in_progress" && (
                   <TaskCard
@@ -73,7 +71,7 @@ function OrganizationTasks() {
           </div>
           <div className={styles.box}>
             <div className={styles.title}>DONE ✅</div>
-            {tasks?.map((task, idx) => {
+            {tasks.map((task, idx) => {
               return (
                 task.status === "done" && (
                   <TaskCard
