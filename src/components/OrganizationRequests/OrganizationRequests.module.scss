@@ -1,0 +1,14 @@
+@import "../../vars.scss";
+
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 5px 8px;
+}
+
+.errorTitle {
+    text-align: center;
+    color: $tg-hint-color;
+}
