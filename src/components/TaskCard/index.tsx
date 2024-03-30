@@ -9,12 +9,11 @@ import RequestedIcon from "../../assets/icons/RequestedIcon";
 
 type propsType = {
   task: TaskInterface;
-  data: Array<TaskInterface>;
   setData: Dispatch<SetStateAction<Array<TaskInterface> | undefined>>;
 };
 
 function TaskCard({ props }: { props: propsType }) {
-  const { task, data, setData } = props;
+  const { task, setData } = props;
   const [status, setStatus] = useState<string>(task.status);
 
   const [searchParams, _] = useSearchParams();
@@ -33,7 +32,7 @@ function TaskCard({ props }: { props: propsType }) {
       .then(() => {
         axios
           .get(`${url}/get-tasks`, {
-            params: { organization: params.organization_id },
+            params: { organization_id: params.organization_id },
           })
           .then((resp) => {
             setData(resp.data);

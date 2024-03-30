@@ -12,7 +12,7 @@ function OrganizationCard({ params }: { params: OrganizationInterface }) {
       className={styles.card}
       onClick={() =>
         navigate(
-          `/${params.name}/tasks?user_id=${searchParams.get(
+          `/${params.id}/tasks?user_id=${searchParams.get(
             "user_id"
           )}&language_code=${searchParams.get("language_code")}&user_status=${
             params.user_status

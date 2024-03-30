@@ -7,6 +7,7 @@ import styles from "./OrganizationTasks.module.scss";
 
 function OrganizationTasks() {
   const [tasks, setTasks] = useState<Array<TaskInterface>>();
+  const [view, setView] = useState(false);
 
   const [searchParams, _] = useSearchParams();
   const params = useParams();
@@ -15,10 +16,11 @@ function OrganizationTasks() {
   useEffect(() => {
     axios
       .get(`${url}/get-tasks`, {
-        params: { organization: params.organization_id },
+        params: { organization_id: params.organization_id },
       })
       .then((resp) => {
         setTasks(resp.data);
+        resp.data.length !== 0 && setView(true);
       });
   }, []);
 
@@ -41,45 +43,51 @@ function OrganizationTasks() {
           Create new task
         </button>
       )}
-      <div className={styles.box}>
-        <div className={styles.title}>NOT STARTED ❌</div>
-        {tasks?.map((task, idx) => {
-          return (
-            task.status === "not_started" && (
-              <TaskCard
-                props={{ task: task, data: tasks, setData: setTasks }}
-                key={idx}
-              />
-            )
-          );
-        })}
-      </div>
-      <div className={styles.box}>
-        <div className={styles.title}>IN PROGRESS 💻</div>
-        {tasks?.map((task, idx) => {
-          return (
-            task.status === "in_progress" && (
-              <TaskCard
-                props={{ task: task, data: tasks, setData: setTasks }}
-                key={idx}
-              />
-            )
-          );
-        })}
-      </div>
-      <div className={styles.box}>
-        <div className={styles.title}>DONE ✅</div>
-        {tasks?.map((task, idx) => {
-          return (
-            task.status === "done" && (
-              <TaskCard
-                props={{ task: task, data: tasks, setData: setTasks }}
-                key={idx}
-              />
-            )
-          );
-        })}
-      </div>
+      {view ? (
+        <>
+          <div className={styles.box}>
+            <div className={styles.title}>NOT STARTED ❌</div>
+            {tasks?.map((task, idx) => {
+              return (
+                task.status === "not_started" && (
+                  <TaskCard
+                    props={{ task: task, setData: setTasks }}
+                    key={idx}
+                  />
+                )
+              );
+            })}
+          </div>
+          <div className={styles.box}>
+            <div className={styles.title}>IN PROGRESS 💻</div>
+            {tasks?.map((task, idx) => {
+              return (
+                task.status === "in_progress" && (
+                  <TaskCard
+                    props={{ task: task, setData: setTasks }}
+                    key={idx}
+                  />
+                )
+              );
+            })}
+          </div>
+          <div className={styles.box}>
+            <div className={styles.title}>DONE ✅</div>
+            {tasks?.map((task, idx) => {
+              return (
+                task.status === "done" && (
+                  <TaskCard
+                    props={{ task: task, setData: setTasks }}
+                    key={idx}
+                  />
+                )
+              );
+            })}
+          </div>
+        </>
+      ) : (
+        <h1 className={styles.errorTitle}>No tasks</h1>
+      )}
     </div>
   );
 }
