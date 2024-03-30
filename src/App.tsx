@@ -14,10 +14,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<OrganizationsPage />} />
-          <Route
-            path="/:organization_id/tasks"
-            element={<OrganizationPage />}
-          />
+          <Route path="/:organization_id" element={<OrganizationPage />} />
           <Route path="/:organization_id/createTask" element={<CreateTask />} />
           <Route path="/createOrganization" element={<CreateOrganization />} />
         </Routes>
