@@ -33,7 +33,7 @@ function TaskCard({ props }: { props: propsType }) {
       .then(() => {
         axios
           .get(`${url}/get-tasks`, {
-            params: { organization: params.organizationName },
+            params: { organization: params.organization_id },
           })
           .then((resp) => {
             setData(resp.data);
