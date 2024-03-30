@@ -1,0 +1,35 @@
+@import "../../vars.scss";
+
+.box {
+    border-radius: 12px;
+    padding: 8px;
+
+    &>div>span {
+        background: $tg-button-background;
+        border-radius: 6px;
+        height: 100%;
+        z-index: -1;
+    }
+}
+
+.tab {
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 6px;
+    -webkit-transition-duration: 0.3s, 0.3s;
+    text-transform: none;
+
+    &[aria-selected="false"] {
+        color: $tg-text-color;
+        opacity: 0.35;
+
+        &:hover {
+            opacity: 0.9;
+        }
+
+    }
+
+    &[aria-selected="true"] {
+        color: $tg-text-color;
+    }
+}
