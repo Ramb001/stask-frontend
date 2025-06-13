@@ -144,13 +144,36 @@ const OrgChatPage: React.FC = () => {
         <>
           <Stack spacing={2}>
             <FormControl fullWidth>
-              <InputLabel>Отдел</InputLabel>
+              <InputLabel>Выберите отдел</InputLabel>
               <Select
                 value={selectedDepartment}
                 onChange={(e: SelectChangeEvent) =>
                   setSelectedDepartment(e.target.value)
                 }
                 label="Отдел"
+                sx={{
+                  "& .MuiSvgIcon-root": {
+                    color: "var(--tg-theme-button-color)",
+                  },
+                  "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                    {
+                      borderColor: "var(--tg-theme-button-color)",
+                    },
+                  "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                    {
+                      borderColor: "var(--tg-theme-button-color)",
+                    },
+                  "&>label": {
+                    color: "var(--tg-theme-button-color) !important",
+                  },
+                  "& label.Mui-focused": {
+                    color: "white",
+                  },
+                }}
+                style={{
+                  backgroundColor: "var(--tg-theme-secondary-bg-color)",
+                  color: "var(--tg-theme-text-color)",
+                }}
               >
                 {departments.map((dep) => (
                   <MenuItem value={dep.name} key={dep}>
@@ -167,15 +190,105 @@ const OrgChatPage: React.FC = () => {
               value={goalText}
               onChange={(e) => setGoalText(e.target.value)}
               fullWidth
+              sx={{
+                "& label.Mui-focused": {
+                  color: "white",
+                },
+                "& .MuiInput-underline:after": {
+                  borderBottomColor: "yellow",
+                },
+                "& .MuiOutlinedInput-root": {
+                  "&.Mui-focused fieldset": {
+                    borderColor: "var(--tg-theme-button-color)",
+                  },
+                },
+              }}
+              inputProps={{ style: { color: "var(--tg-theme-text-color)" } }}
+              style={{
+                backgroundColor: "var(--tg-theme-secondary-bg-color)",
+                color: "var(--tg-theme-text-color)",
+              }}
             />
 
             <Button
               variant="contained"
               onClick={handleSubmitGoal}
               disabled={loading || !goalText || !selectedDepartment}
+              style={{
+                backgroundColor:
+                  !goalText || !selectedDepartment
+                    ? ""
+                    : "var(--tg-theme-button-color)",
+                color:
+                  !goalText || !selectedDepartment
+                    ? ""
+                    : "var(--tg-theme-text-color)",
+              }}
             >
               {loading ? <CircularProgress size={22} /> : "Сформировать задачи"}
             </Button>
+            <Typography
+              sx={{
+                fontFamily: "Arial, sans-serif",
+                fontSize: "14px",
+                color: "var(--tg-theme-text-color)",
+                backgroundColor: "var(--tg-theme-secondary-bg-color)",
+                padding: "10px",
+                borderRadius: "6px",
+              }}
+            >
+              <section>
+                <p>
+                  Инструмент для руководителей и менеджеров, который помогает
+                  превратить общую цель в конкретный план действий. Быстро,
+                  структурно, без лишней ручной работы.
+                </p>
+              </section>
+
+              <section>
+                <h3>1. Как правильно работать</h3>
+                <ul>
+                  <li>
+                    <strong>Сформулируйте цель</strong> — кратко, в 2–3
+                    предложениях;
+                  </li>
+                  <li>
+                    <strong>Укажите отдел</strong> — например, IT, Маркетинг,
+                    Продажи или "общий" для всей компании;
+                  </li>
+                  <li>
+                    <strong>Получите список задач</strong> — с описанием,
+                    сроками и приоритетами;
+                  </li>
+                  <li>
+                    <strong>Назначьте исполнителей</strong> под ваши внутренние
+                    процессы.
+                  </li>
+                </ul>
+              </section>
+
+              <section>
+                <h3>2. Особенности и советы</h3>
+                <ul>
+                  <li>
+                    Задачи генерируются для каждого отдела, если цель общая;
+                  </li>
+                  <li>Все задачи автономны — без цепочек зависимостей;</li>
+                  <li>
+                    Формулировки адаптированы под стиль и язык конкретного
+                    отдела;
+                  </li>
+                  <li>
+                    Сроки ориентированы на реальные спринты: 3–10 рабочих дней
+                    на задачу;
+                  </li>
+                  <li>
+                    Используется для стратегического планирования, запуска
+                    инициатив и синхронизации команд.
+                  </li>
+                </ul>
+              </section>
+            </Typography>
           </Stack>
         </>
       ) : (
