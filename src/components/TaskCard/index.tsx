@@ -46,7 +46,22 @@ function TaskCard({ props }: { props: propsType }) {
     <div className={styles.taskCard}>
       <div className={styles.mainInfo}>
         <div className={styles.info}>
-          <div className={styles.title}>{task.title}</div>
+          <div className={styles.title}>
+            {task.title}{" "}
+            <span
+              style={{
+                color:
+                  task.priority === "high"
+                    ? "red"
+                    : task.priority === "medium"
+                    ? "orange"
+                    : "green",
+                fontSize: "12px",
+              }}
+            >
+              {task.priority}
+            </span>
+          </div>
           <div className={styles.text}>Till: {task.deadline}</div>
         </div>
         <div

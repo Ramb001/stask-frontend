@@ -1,4 +1,4 @@
-export const url = "https://stask-bot.ru";
+export const url = "https://stask-pb.nt61.com";
 
 export const maxNumberOfDescriptionCharaters = 2500;
 

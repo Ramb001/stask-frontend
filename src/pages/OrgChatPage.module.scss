@@ -1,0 +1,80 @@
+@import "../vars.scss";
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 5px 8px;
+  color: $tg-text-color;
+  background: $tg-background;
+  height: 88svh;
+}
+
+.title {
+  margin: 0 0 12px 0;
+  color: $tg-text-color;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.chatPaper {
+  border-radius: 10px;
+  padding: 12px;
+  height: 100%;
+  overflow-y: auto;
+  background: $tg-secondary-background;
+  margin-bottom: 16px;
+}
+
+.messageRow {
+  display: flex;
+}
+
+.messageBox {
+  display: inline-block;
+  border-radius: 8px;
+  padding: 8px 14px;
+  max-width: 350px;
+  word-break: break-word;
+  font-size: 14px;
+}
+
+.userMessage {
+  background: $tg-button-background !important;
+  color: $tg-button-text-color !important;
+  margin-left: auto;
+}
+
+.aiMessage {
+  background: $tg-button-background !important;
+  color: $tg-button-text-color !important;
+  margin-right: auto;
+}
+
+.timestamp {
+  font-size: 11px;
+  color: $tg-hint-color;
+  margin-left: 8px;
+}
+
+.inputRow {
+  display: flex;
+  gap: 8px;
+}
+
+.inputField {
+  flex: 1;
+  background: $tg-secondary-background !important;
+  color: $tg-button-text-color !important;
+  border: none !important;
+  border-radius: 6px !important;
+}
+
+.sendButton {
+  background: $tg-button-background !important;
+  color: $tg-button-text-color !important;
+  border-radius: 10px !important;
+  min-width: 120px;
+  font-size: 16px;
+  font-weight: 400;
+}

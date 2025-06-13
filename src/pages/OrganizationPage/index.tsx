@@ -5,6 +5,7 @@ import TabsLayout from "../../layouts/TabsLayout";
 import OrganizationTasks from "../../components/OrganizationTasks";
 import OrganizationRequests from "../../components/OrganizationRequests";
 import OverviewOrganization from "../../components/OverviewOrganization";
+import OrgChatPage from "../OrgChatPage";
 
 function OrganizationPage() {
   const { WebApp } = useContext(WebAppContext);
@@ -40,7 +41,7 @@ function OrganizationPage() {
         props={{
           tabs:
             searchParams.get("user_status") === "Owner"
-              ? ["Overview", "Tasks", "Requests"]
+              ? ["Overview", "Tasks", "Requests", "AI-Agent"]
               : ["Overview", "Tasks"],
           activeTab: activeTab,
           setTab: setActiveTab,
@@ -50,6 +51,7 @@ function OrganizationPage() {
       {activeTab === "Tasks" && <OrganizationTasks />}
       {activeTab === "Requests" &&
         searchParams.get("user_status") === "Owner" && <OrganizationRequests />}
+      {activeTab === "AI-Agent" && <OrgChatPage />}
     </div>
   );
 }
